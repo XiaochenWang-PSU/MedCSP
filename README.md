@@ -2,7 +2,7 @@
 Here lies the materials of the paper "Unity in Diversity: Bridging Multimodal Medical Sources via Cross-source Pre-training". 
 
 ## Checkpoints
-The pre-trained CLIP model is available at https://huggingface.co/xcwangpsu/MedCSP_clip. Here is a demo of how to utilize the CLIP for encoding: 
+After evaluation on the privacy concerns, we decide to release the pre-trained vision-language encoders in the form of conventional CLIP model, available at https://huggingface.co/xcwangpsu/MedCSP_clip. Here is a demo of how to utilize the CLIP for encoding: 
 
 ```python
 from open_clip import create_model_from_pretrained, get_tokenizer
