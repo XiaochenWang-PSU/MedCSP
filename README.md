@@ -49,3 +49,19 @@ seq_text_embedding = model.text.transformer(tokens, output_hidden_states=True).h
 print("Sequential text embedding size:", seq_text_embedding.shape)
 
 ```
+
+
+
+## Acknowledgement
+
+If you find any source provided in this repo or our paper are useful, please cite our paper using this BibTex:
+
+```bibtex
+@inproceedings{wang2024unity,
+  title={Unity in Diversity: Collaborative Pre-training Across Multimodal Medical Sources},
+  author={Wang, Xiaochen and Luo, Junyu and Wang, Jiaqi and Zhong, Yuan and Zhang, Xiaokun and Wang, Yaqing and Bhatia, Parminder and Xiao, Cao and Ma, Fenglong},
+  booktitle={Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages={3644--3656},
+  year={2024}
+}
+```
