@@ -4,7 +4,7 @@ Here lies the materials of the paper "Unity in Diversity: Bridging Multimodal Me
 ## Checkpoints
 The pre-trained CLIP model is available at https://huggingface.co/xcwangpsu/MedCSP_clip. Here is a demo of how to utilize the CLIP for encoding: 
 
-```
+```python
 from open_clip import create_model_from_pretrained, get_tokenizer
 import torch
 from urllib.request import urlopen
