@@ -52,7 +52,7 @@ print("Sequential text embedding size:", seq_text_embedding.shape)
 
 
 
-## Acknowledgement
+## Citation
 
 If you find any sources provided in this repo or our paper are useful, please cite our paper using this BibTex:
 
