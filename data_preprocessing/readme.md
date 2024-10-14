@@ -10,6 +10,7 @@ Here lies source code for extracting and preprocessing EHR data from MIMIC-III a
 The datasets can be acquired via the following links:
 
 MIMIC-III: https://physionet.org/content/mimiciii/1.4/
+
 MIMIC-IV: https://physionet.org/content/mimiciv/3.1/
 
 Permission should be requested as the prerequisite of the sources.
@@ -20,7 +21,7 @@ The initial step is to run
 
 ```bash 
 python combine.py
-
+```
 
 to combine the MIMIC-III and MIMIC-IV databases with necessary modifications. Then, modify the yaml configuration file to reflect data paths.
 
