@@ -1,0 +1,143 @@
+../1_data_extraction/mimic_preprocessed//population/pretrain_48.0h.csv
+           ID  pretrain_label
+0      201006               1
+1      201204               1
+2      203766               1
+3      204132               1
+4      204201               1
+..        ...             ...
+271  39635619               1
+272  39711498               1
+273  39804682               1
+274  39864867               1
+275  39880770               1
+
+[276 rows x 2 columns]
+Input:
+    Data      : ../1_data_extraction/mimic_preprocessed//features/outcome=pretrain,T=48.0,dt=1.0/input_data.p
+    Population: ../1_data_extraction/mimic_preprocessed//population/pretrain_48.0h.csv
+    Config    : None
+
+Output directory: ../1_data_extraction/mimic_preprocessed//features/outcome=pretrain,T=48.0,dt=1.0/
+
+Input arguments:
+    T      = 48.0
+    dt     = 1.0
+    θ₁     = 0.05
+    θ₂     = 0.001
+    θ_freq = 1.0
+    k      = 3 ['min', 'max', 'mean']
+
+discretize = yes
+    S discretization bins: to be computed from data
+    X discretization bins: to be computed from data
+
+N = 276
+L = 48
+
+
+================================================================================
+1) Pre-filter
+================================================================================
+Index(['ID', 't', 'variable_name', 'variable_value'], dtype='object')
+Remove rows not in population
+Remove rows with t outside of [0, 48]
+Remove rare variables (<= 0.05)
+Total variables     : 4510
+Rare variables      : 3794
+Remaining variables : 716
+# rows (original)   : 207546
+# rows (filtered)   : 177093
+
+================================================================================
+2) Transform; 3) Post-filter
+================================================================================
+
+--------------------------------------------------------------------------------
+*) Detecting and parsing value types
+--------------------------------------------------------------------------------
+Saved as: ../1_data_extraction/mimic_preprocessed//features/outcome=pretrain,T=48.0,dt=1.0/value_types.csv
+
+--------------------------------------------------------------------------------
+*) Separate time-invariant and time-dependent
+--------------------------------------------------------------------------------
+Variables (time-invariant): 10
+Variables (time-dependent): 706
+# rows    (time-invariant): 2760
+# rows    (time-dependent): 174333
+
+--------------------------------------------------------------------------------
+2-A) Transform time-invariant data
+--------------------------------------------------------------------------------
+(N × ^d) table            :	 (276, 10)
+number of missing entries :	 351 out of 2760 total
+Time elapsed: 0.013496 seconds
+
+Output
+S_all, binary features    :	 (276, 69)
+Time elapsed: 0.075909 seconds
+
+--------------------------------------------------------------------------------
+3-A) Post-filter time-invariant data
+--------------------------------------------------------------------------------
+Original       : 69
+Nearly-constant: 0
+Correlated     : 1
+Time elapsed: 0.080816 seconds
+
+Output
+S: shape=(276, 68), density=0.120
+Total time: 0.082055 seconds
+
+
+--------------------------------------------------------------------------------
+2-B) Transform time-dependent data
+--------------------------------------------------------------------------------
+Total variables    : 706
+Frequent variables : []
+M₁ = 0
+M₂ = 706
+k  = 3 ['min', 'max', 'mean']
+Transforming each example...
+Batches of size 100:  3
+
+Parallel processing done
+necess
+DONE: Transforming each example...
+(freq) number of missing entries :	 0.0 out of 276×48×0=0 total
+(freq) number of imputed entries :	 0.0
+(freq) number of not imputed entries :	 0.0
+(non-freq) number of missing entries :	 9181256 out of 276×48×706=9353088 total
+
+(N × L × ^D) table :	 (276, 48, 706)
+Time elapsed: 5.658724 seconds
+Discretizing features...
+
+Processing 705 non-boolean variable columns...
+    Computing bin edges for numeric variables...
+    Discretizing variables to binary features
+Finished discretizing features
+
+Output
+X_all: shape=(276, 48, 1522), density=0.009
+Time elapsed: 29.364758 seconds
+
+--------------------------------------------------------------------------------
+3-B) Post-filter time-dependent data
+--------------------------------------------------------------------------------
+(276, 48, 1522) 0.008521951792391146
+Original : 1522
+Nearly-constant: 0
+*** time:  7.079346418380737
+Correlated     : 124
+*** time:  12.797960042953491
+
+Output
+X: shape=(276, 48, 1398), density=0.007
+(276, 48, 1398) 0.007440483903851603
+Time elapsed: 42.162891 seconds
+
+Output
+X: shape=(276, 48, 1398), density=0.007
+Total time: 42.251172 seconds
+

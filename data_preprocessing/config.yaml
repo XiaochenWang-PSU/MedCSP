@@ -1,0 +1,11 @@
+# Location of input files
+mimic4_path: ../combined_files/
+mimic3_path: ../combined_files/
+data_path: ../1_data_extraction/mimic_preprocessed/
+
+# Customize table headers
+column_names:
+    ID: ID
+    t: t
+    var_name: variable_name
+    var_value: variable_value
